@@ -1,6 +1,6 @@
 # Student-Management
 
-![Logo](logo.png)
+![Logo](Logo.png)
 
 ---
 
