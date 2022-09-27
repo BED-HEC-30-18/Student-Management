@@ -54,7 +54,7 @@ Currently working on the C4 architecture of the app
 
 ### Latest development
 
-
+![Prototype design snippet](Figma.png)
 
 ### Tasks
 * [X] Prototyping
