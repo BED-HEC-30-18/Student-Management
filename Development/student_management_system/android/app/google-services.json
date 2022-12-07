@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "758260774798",
+    "project_id": "student-management-syste-5f112",
+    "storage_bucket": "student-management-syste-5f112.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:758260774798:android:ee5f322a305e422bbdd6df",
+        "android_client_info": {
+          "package_name": "app.bfholding.netlify.student_management_system"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "758260774798-839nib2d3d3srqeps42pn6gfcgplfk2g.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCYOq_X7R3R2Y43H3sK3Sm2hLMpcllXtJQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "758260774798-839nib2d3d3srqeps42pn6gfcgplfk2g.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
