@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:like_button/like_button.dart';
 import 'package:student_management_system/components/button/like_button.dart';
-import 'package:student_management_system/pages/home/home_page.dart';
+import 'package:student_management_system/pages/main/main_page.dart';
 
 enum ButtonState { init, loading, done, start, successs }
 
@@ -88,7 +88,7 @@ class _ButtonLoadState extends State<ButtonLoad> {
           await Future.delayed(const Duration(seconds: 3));
           if (isSuccessful == true) {
             Navigator.push(context, MaterialPageRoute(builder: (context) {
-              return HomePage();
+              return MainPage();
             }));
           } else {
             setState(() => state = ButtonState.init);

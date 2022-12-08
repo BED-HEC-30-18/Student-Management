@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:student_management_system/components/theme/theme.dart';
-import 'package:student_management_system/pages/main_page.dart';
+import 'package:student_management_system/pages/main/start_page.dart';
+import 'package:student_management_system/theme/theme.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: "Student Management System",
       theme: theme(),
-      home: MainPage(),
+      home: StartPage(),
     );
   }
 }

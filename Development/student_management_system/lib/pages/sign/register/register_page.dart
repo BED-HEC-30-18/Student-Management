@@ -112,7 +112,7 @@ class _RegisterPageState extends State<RegisterPage> {
               ButtonLoad(
                 title: "Sign Up",
                 formKey: formKey,
-                success: false,
+                success: true,
               ),
 
               //Other options
