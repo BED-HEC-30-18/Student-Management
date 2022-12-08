@@ -5,6 +5,7 @@ import 'package:student_management_system/components/drawer/drawer_menu_btn.dart
 import 'package:student_management_system/components/drawer/drawer_widget.dart';
 import 'package:student_management_system/pages/home/home_page.dart';
 import 'package:student_management_system/pages/settings/settings.dart';
+import 'package:student_management_system/pages/subjects/subjects.dart';
 
 class MainPage extends StatefulWidget {
   const MainPage({Key? key}) : super(key: key);
@@ -158,10 +159,10 @@ class _MainPageState extends State<MainPage> {
       //   return CalendarPage(
       //     isDrawerOpen: isDrawerOpen,
       //   );
-      // case DrawerItems.subjects:
-      //   return SubjectPage(
-      //     isDrawerOpen: isDrawerOpen,
-      //   );
+      case DrawerItems.subjects:
+        return SubjectPage(
+          isDrawerOpen: isDrawerOpen,
+        );
       case DrawerItems.settings:
         return SettingPage(
           isDrawerOpen: isDrawerOpen,
