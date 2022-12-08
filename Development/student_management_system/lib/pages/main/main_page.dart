@@ -4,6 +4,7 @@ import 'package:student_management_system/components/drawer/drawer_items.dart';
 import 'package:student_management_system/components/drawer/drawer_menu_btn.dart';
 import 'package:student_management_system/components/drawer/drawer_widget.dart';
 import 'package:student_management_system/pages/agenda/calendar.dart';
+import 'package:student_management_system/pages/classes/timetable_page.dart';
 import 'package:student_management_system/pages/home/home_page.dart';
 import 'package:student_management_system/pages/settings/settings.dart';
 import 'package:student_management_system/pages/subjects/subjects.dart';
@@ -152,10 +153,10 @@ class _MainPageState extends State<MainPage> {
         return HomePage(
           isDrawerOpen: isDrawerOpen,
         );
-      // case DrawerItems.timetable:
-      //   return TimetablePage(
-      //     isDrawerOpen: isDrawerOpen,
-      //   );
+      case DrawerItems.timetable:
+        return TimetablePage(
+          isDrawerOpen: isDrawerOpen,
+        );
       case DrawerItems.calendar:
         return CalendarPage(
           isDrawerOpen: isDrawerOpen,
