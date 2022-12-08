@@ -4,9 +4,9 @@
     <!-- <uses-persmission android:name="android.persmission.INTERNET" /> -->
 
    <application
-        android:label="student_management_system"
+        android:label="Student Manager"
         android:name="${applicationName}"
-        android:icon="@mipmap/ic_launcher">
+        android:icon="@mipmap/launcher_icon">
         <activity
             android:name=".MainActivity"
             android:exported="true"

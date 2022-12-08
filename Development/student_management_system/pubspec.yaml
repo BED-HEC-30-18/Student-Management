@@ -36,8 +36,20 @@ dependencies:
   cupertino_icons: ^1.0.2
   firebase_auth: ^3.3.14
   like_button: ^2.0.5
+  flutter_speed_dial: ^6.2.0
+  timetable_view: ^0.3.0
+  table_calendar: ^3.0.8
+  flutter_native_splash: ^2.2.9
 
 dev_dependencies:
+  flutter_launcher_icons: "^0.11.0"
+
+flutter_icons:
+  android: "launcher_icon"
+  ios: true
+  image_path: "assets/images/Logo.png"
+  adaptive_icon_background: "#eff7f6"
+  adaptive_icon_foreground: "assets/images/logo_foreground.png"
   flutter_test:
     sdk: flutter
 
@@ -47,6 +59,11 @@ dev_dependencies:
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
   flutter_lints: ^2.0.0
+
+flutter_native_splash:
+  color: "#eff7f6"
+  image: assets/images/Logo.png
+  
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
