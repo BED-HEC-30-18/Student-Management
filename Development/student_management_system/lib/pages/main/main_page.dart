@@ -3,7 +3,7 @@ import 'package:student_management_system/components/drawer/drawer_item.dart';
 import 'package:student_management_system/components/drawer/drawer_items.dart';
 import 'package:student_management_system/components/drawer/drawer_menu_btn.dart';
 import 'package:student_management_system/components/drawer/drawer_widget.dart';
-import 'package:student_management_system/pages/agenda/calendar.dart';
+import 'package:student_management_system/pages/agenda/Agenda.dart';
 import 'package:student_management_system/pages/classes/timetable_page.dart';
 import 'package:student_management_system/pages/home/home_page.dart';
 import 'package:student_management_system/pages/settings/settings.dart';
@@ -147,6 +147,7 @@ class _MainPageState extends State<MainPage> {
     );
   }
 
+// factory method for selecting the page to usef
   Widget getDrawerPage() {
     switch (item) {
       case DrawerItems.home:

@@ -31,43 +31,36 @@ class _SignInOrSignUpState extends State<SignInOrSignUp> {
           alignment: Alignment.centerRight,
           child: ClipRRect(
             borderRadius: BorderRadius.circular(5),
-            child: Stack(
-              children: <Widget>[
-                Positioned.fill(
-                  child: Container(
-                    decoration: const BoxDecoration(
-                      color: Color.fromARGB(255, 26, 143, 227),
-                    ),
+            child: Material(
+              child: InkWell(
+                onTap: gotonextpage,
+                highlightColor: Color.fromARGB(255, 144, 227, 244),
+                splashColor: Color.fromARGB(255, 144, 227, 244),
+                child: Ink(
+                  width: 100,
+                  height: 50,
+                  decoration: const BoxDecoration(
+                    color: Color.fromARGB(255, 26, 143, 227),
                   ),
-                ),
-                TextButton(
-                  style: TextButton.styleFrom(
-                    textStyle: const TextStyle(fontSize: 20),
-                  ),
-                  onPressed: gotonextpage,
-                  child: Container(
-                    width: 100,
-                    height: 25,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text(
-                          widget.title,
-                          textAlign: TextAlign.center,
-                          style: const TextStyle(
-                            color: Colors.white,
-                            fontSize: 18,
-                          ),
-                        ),
-                        const Icon(
-                          Icons.arrow_forward,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        widget.title,
+                        textAlign: TextAlign.center,
+                        style: const TextStyle(
                           color: Colors.white,
-                        )
-                      ],
-                    ),
+                          fontSize: 18,
+                        ),
+                      ),
+                      const Icon(
+                        Icons.arrow_forward,
+                        color: Colors.white,
+                      )
+                    ],
                   ),
                 ),
-              ],
+              ),
             ),
           ),
         ),
@@ -78,3 +71,14 @@ class _SignInOrSignUpState extends State<SignInOrSignUp> {
     );
   }
 }
+// TextButton(
+//                   style: TextButton.styleFrom(
+//                     textStyle: const TextStyle(fontSize: 20),
+//                   ),
+//                   onPressed: 
+//                   child: Container(
+//                     width: 100,
+//                     height: 25,
+                    
+//                   ),
+//                 ),

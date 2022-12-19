@@ -17,12 +17,17 @@ class RegisterPage extends StatefulWidget {
 }
 
 class _RegisterPageState extends State<RegisterPage> {
-  final emailController = TextEditingController();
-  final passwordController = TextEditingController();
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
+  final FocusNode emailFocusNode = FocusNode();
+  final FocusNode passwordFocusNode = FocusNode();
+  final FocusNode nameFocusNode = FocusNode();
+  final FocusNode usernameFocusNode = FocusNode();
+  bool isTapped = false;
   final formKey = GlobalKey<FormState>();
 
-  Future signIn() async {
-    await FirebaseAuth.instance.signInWithEmailAndPassword(
+  Future signUp() async {
+    await FirebaseAuth.instance.createUserWithEmailAndPassword(
       email: emailController.text.trim(),
       password: passwordController.text.trim(),
     );
@@ -33,6 +38,17 @@ class _RegisterPageState extends State<RegisterPage> {
     emailController.dispose();
     passwordController.dispose();
     super.dispose();
+  }
+
+  void click() async {
+    setState(() {
+      isTapped = true;
+    });
+    await Future.delayed(const Duration(milliseconds: 500), () {});
+    setState(() {
+      isTapped = false;
+    });
+    signUp();
   }
 
   @override
@@ -73,7 +89,9 @@ class _RegisterPageState extends State<RegisterPage> {
                     hintText: "e.g. Yamkani Banda",
                     // onChanged: (value) {},
                     icon: Icons.account_circle_rounded,
-                    controller: emailController,
+                    // controller: emailController,
+                    currentNode: nameFocusNode,
+                    nextNode: usernameFocusNode,
                   ),
                   // username
                   const fieldTitle(title: "Username"),
@@ -81,7 +99,9 @@ class _RegisterPageState extends State<RegisterPage> {
                     hintText: "e.g. Yami",
                     // onChanged: (value) {},
                     icon: Icons.account_circle_rounded,
-                    controller: emailController,
+                    // controller: emailController,
+                    currentNode: usernameFocusNode,
+                    nextNode: emailFocusNode,
                   ),
                   // email
                   const fieldTitle(title: "Email"),
@@ -90,6 +110,8 @@ class _RegisterPageState extends State<RegisterPage> {
                     // onChanged: (value) {},
                     icon: Icons.email,
                     controller: emailController,
+                    currentNode: emailFocusNode,
+                    nextNode: passwordFocusNode,
                   ),
                   //password
                   const fieldTitle(title: "Password"),
@@ -100,19 +122,27 @@ class _RegisterPageState extends State<RegisterPage> {
                   //confirm
                   const fieldTitle(title: "Confirm Password"),
                   RoundedPasswordField(
-                    // onChanged: (value) {},
-                    controller: passwordController,
-                  ),
+                      // onChanged: (value) {},
+                      // controller: passwordController,
+                      ),
                 ],
               ),
               const SizedBox(
                 height: 20,
               ),
               //sign-in button
-              ButtonLoad(
-                title: "Sign Up",
-                formKey: formKey,
-                success: true,
+              // ButtonLoad(
+              //   title: "Sign Up",
+              //   formKey: formKey,
+              //   success: true,
+              // ),
+
+              GestureDetector(
+                onTap: click,
+                child: BarButton(
+                  title: "Sign Up",
+                  isTapped: isTapped,
+                ),
               ),
 
               //Other options

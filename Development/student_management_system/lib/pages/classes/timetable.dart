@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:student_management_system/pages/classes/view_class.dart';
 import 'package:timetable_view/timetable_view.dart';
 
 class Timetable extends StatefulWidget {
@@ -140,6 +141,9 @@ class _TimetableState extends State<Timetable> {
   void onEventTapCallBack(TableEvent event) {
     print(
         "Event Clicked!! LaneIndex ${event.laneIndex} Title: ${event.title} StartHour: ${event.startTime.hour} EndHour: ${event.endTime.hour}");
+    Navigator.push(context, MaterialPageRoute(builder: (context) {
+      return ViewClass();
+    }));
   }
 
   void onTimeSlotTappedCallBack(

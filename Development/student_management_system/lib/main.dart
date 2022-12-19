@@ -19,7 +19,10 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: "Student Management System",
-      theme: theme(),
+      theme: ThemeData.light().copyWith(
+        scaffoldBackgroundColor: Color.fromARGB(255, 239, 247, 246),
+        primaryColor: Color.fromARGB(255, 26, 143, 227),
+      ),
       home: StartPage(),
     );
   }

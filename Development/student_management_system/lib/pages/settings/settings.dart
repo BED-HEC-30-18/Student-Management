@@ -1,5 +1,8 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:student_management_system/components/titlebar.dart';
+import 'package:student_management_system/components/button/barButton.dart';
+import 'package:student_management_system/components/title/titlebar.dart';
+import 'package:student_management_system/pages/sign/components/logout.dart';
 
 class SettingPage extends StatelessWidget {
   SettingPage({
@@ -69,7 +72,20 @@ class MainSection extends StatelessWidget {
               ),
             ],
           ),
-        )
+        ),
+        const SizedBox(
+          height: 50,
+        ),
+        Logout(),
+        // GestureDetector(
+        //   onTap: () {
+        //     FirebaseAuth.instance.signOut();
+        //   },
+        //   child: Container(
+        //     decoration: BoxDecoration(color: Colors.deepPurple),
+        //     child: Text("Sign out"),
+        //   ),
+        // ),
       ],
     );
   }

@@ -18,7 +18,7 @@ class _fieldTitleState extends State<fieldTitle> {
       child: Text(
         widget.title,
         textAlign: TextAlign.left,
-        style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
+        style: const TextStyle(fontSize: 22, fontWeight: FontWeight.w400),
       ),
     );
   }

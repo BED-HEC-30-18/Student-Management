@@ -1,19 +1,17 @@
 import 'package:flutter/material.dart';
 
-class BarButton extends StatefulWidget {
-  BarButton(
-      {Key? key, required this.title, required this.isTapped, this.onPressed})
+class DeleteButton extends StatefulWidget {
+  DeleteButton({Key? key, required this.isTapped, this.onPressed})
       : super(key: key);
 
-  final String title;
   bool isTapped;
   var onPressed;
 
   @override
-  State<BarButton> createState() => _BarButtonState();
+  State<DeleteButton> createState() => _DeleteButtonState();
 }
 
-class _BarButtonState extends State<BarButton> {
+class _DeleteButtonState extends State<DeleteButton> {
   bool isClicked = false;
 
   void trigger() async {
@@ -37,8 +35,8 @@ class _BarButtonState extends State<BarButton> {
         boxShadow: [
           BoxShadow(
             color: isClicked
-                ? const Color.fromARGB(0, 2, 148, 252)
-                : const Color.fromARGB(78, 2, 148, 252),
+                ? const Color.fromARGB(0, 193, 47, 66)
+                : const Color.fromARGB(78, 193, 47, 66),
             spreadRadius: 0,
             blurRadius: 20,
             offset: const Offset(10.0, 10.0),
@@ -49,28 +47,27 @@ class _BarButtonState extends State<BarButton> {
         borderRadius: BorderRadius.circular(5),
         child: Material(
           child: InkWell(
-            highlightColor: const Color.fromARGB(63, 26, 143, 227),
-            splashColor: const Color.fromARGB(127, 26, 143, 227),
+            splashColor: Color.fromARGB(255, 228, 120, 56),
             child: Ink(
               height: 50,
               width: size.width * 0.9,
               decoration: const BoxDecoration(
                 gradient: LinearGradient(
                   colors: <Color>[
-                    Color(0xFF90E3F4),
-                    Color(0xFF0394FC),
-                    Color(0xFF0394FC),
-                    Color(0xFF0394FC),
+                    Color(0xFFE47838),
+                    Color(0xFFC12F42),
+                    Color(0xFFC12F42),
+                    Color(0xFFC12F42),
                   ],
                 ),
               ),
               // alignment: Alignment.center,
               child: Center(
                 child: Text(
-                  widget.title,
+                  "Delete",
                   textAlign: TextAlign.center,
-                  style: const TextStyle(
-                    color: Colors.white,
+                  style: TextStyle(
+                    color: Theme.of(context).scaffoldBackgroundColor,
                     fontSize: 24,
                   ),
                 ),

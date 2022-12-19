@@ -7,6 +7,7 @@ import 'package:student_management_system/pages/sign/components/inputField.dart'
 import 'package:student_management_system/pages/sign/components/otherSignOptions.dart';
 import 'package:student_management_system/pages/sign/components/passwordField.dart';
 import 'package:student_management_system/pages/sign/components/signInUpBtn.dart';
+import 'package:student_management_system/pages/sign/forgot_password_page.dart';
 import 'package:student_management_system/pages/sign/register/register_page.dart';
 
 class LoginPage extends StatefulWidget {
@@ -20,7 +21,10 @@ class _LoginPageState extends State<LoginPage> {
   // text controllers
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
+  final FocusNode emailFocusNode = FocusNode();
+  final FocusNode passwordFocusNode = FocusNode();
   final formKey = GlobalKey<FormState>();
+  bool isTapped = false;
 
   Future signIn() async {
     await FirebaseAuth.instance.signInWithEmailAndPassword(
@@ -34,6 +38,17 @@ class _LoginPageState extends State<LoginPage> {
     emailController.dispose();
     passwordController.dispose();
     super.dispose();
+  }
+
+  void click() async {
+    setState(() {
+      isTapped = true;
+    });
+    await Future.delayed(const Duration(milliseconds: 500), () {});
+    setState(() {
+      isTapped = false;
+    });
+    signIn();
   }
 
   @override
@@ -59,7 +74,7 @@ class _LoginPageState extends State<LoginPage> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       const Text(
-                        "Hello Again!",
+                        "Hello Again",
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
                           fontSize: 28,
@@ -73,7 +88,7 @@ class _LoginPageState extends State<LoginPage> {
                         ),
                       ),
                       const Text(
-                        "Welcome back to your Student Management System!",
+                        "Welcome back to your Student Management System",
                         textAlign: TextAlign.center,
                         style: TextStyle(
                           fontSize: 18,
@@ -94,6 +109,8 @@ class _LoginPageState extends State<LoginPage> {
                       // onChanged: (value) {},
                       icon: Icons.email,
                       controller: emailController,
+                      currentNode: emailFocusNode,
+                      nextNode: passwordFocusNode,
                     ),
                     //password
                     fieldTitle(title: "Password"),
@@ -110,7 +127,16 @@ class _LoginPageState extends State<LoginPage> {
                             const Color.fromARGB(255, 2, 148, 252),
                           ),
                         ),
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) {
+                                return ForgotPasswordPage();
+                              },
+                            ),
+                          );
+                        },
                         child: const Text(
                           'forgot password?',
                         ),
@@ -127,17 +153,20 @@ class _LoginPageState extends State<LoginPage> {
                 //   formKey: formKey,
                 // ),
 
-                // BarButton(
-                //   title: "Sign in",
-                //   onChanged: signIn,
-                // ),
                 GestureDetector(
-                  onTap: signIn,
-                  child: Container(
-                    decoration: BoxDecoration(color: Colors.deepPurple),
-                    child: Text("Sign IN"),
+                  onTap: click,
+                  child: BarButton(
+                    title: "Sign In",
+                    isTapped: isTapped,
                   ),
                 ),
+                // GestureDetector(
+                //   onTap: signIn,
+                //   child: Container(
+                //     decoration: BoxDecoration(color: Colors.deepPurple),
+                //     child: Text("Sign IN"),
+                //   ),
+                // ),
 
                 //Other options
                 OtherSignInOption(),
