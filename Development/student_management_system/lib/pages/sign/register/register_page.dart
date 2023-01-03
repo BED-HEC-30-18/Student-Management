@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:student_management_system/components/button/barButton.dart';
-import 'package:student_management_system/components/button/loadButton.dart';
-import 'package:student_management_system/pages/sign/components/fieldTitle.dart';
-import 'package:student_management_system/pages/sign/components/inputField.dart';
+import 'package:student_management_system/components/input/inputField.dart';
+import 'package:student_management_system/components/title/fieldTitle.dart';
 import 'package:student_management_system/pages/sign/components/otherSignOptions.dart';
 import 'package:student_management_system/pages/sign/components/passwordField.dart';
 import 'package:student_management_system/pages/sign/components/signInUpBtn.dart';
 import 'package:student_management_system/pages/sign/login/login_page.dart';
+import 'package:student_management_system/pages/sign/provider/sign_in.dart';
 
 class RegisterPage extends StatefulWidget {
   const RegisterPage({Key? key}) : super(key: key);
@@ -19,10 +19,8 @@ class RegisterPage extends StatefulWidget {
 class _RegisterPageState extends State<RegisterPage> {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
-  final FocusNode emailFocusNode = FocusNode();
-  final FocusNode passwordFocusNode = FocusNode();
-  final FocusNode nameFocusNode = FocusNode();
-  final FocusNode usernameFocusNode = FocusNode();
+  final TextEditingController nameController = TextEditingController();
+  // final TextEditingController usernameController = TextEditingController();
   bool isTapped = false;
   final formKey = GlobalKey<FormState>();
 
@@ -48,7 +46,8 @@ class _RegisterPageState extends State<RegisterPage> {
     setState(() {
       isTapped = false;
     });
-    signUp();
+    registerWithEmailAndPassword(nameController.text.trim(),
+        passwordController.text.trim(), emailController.text.trim());
   }
 
   @override
@@ -59,7 +58,7 @@ class _RegisterPageState extends State<RegisterPage> {
       body: SafeArea(
         child: SingleChildScrollView(
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               const SizedBox(
                 height: 10,
@@ -89,20 +88,16 @@ class _RegisterPageState extends State<RegisterPage> {
                     hintText: "e.g. Yamkani Banda",
                     // onChanged: (value) {},
                     icon: Icons.account_circle_rounded,
-                    // controller: emailController,
-                    currentNode: nameFocusNode,
-                    nextNode: usernameFocusNode,
+                    controller: nameController,
                   ),
                   // username
-                  const fieldTitle(title: "Username"),
-                  RoundInputField(
-                    hintText: "e.g. Yami",
-                    // onChanged: (value) {},
-                    icon: Icons.account_circle_rounded,
-                    // controller: emailController,
-                    currentNode: usernameFocusNode,
-                    nextNode: emailFocusNode,
-                  ),
+                  // const fieldTitle(title: "Username"),
+                  // RoundInputField(
+                  //   hintText: "e.g. Yami",
+                  //   onChanged: (value) {},
+                  //   icon: Icons.account_circle_rounded,
+                  //   controller: emailController,
+                  // ),
                   // email
                   const fieldTitle(title: "Email"),
                   RoundInputField(
@@ -110,8 +105,6 @@ class _RegisterPageState extends State<RegisterPage> {
                     // onChanged: (value) {},
                     icon: Icons.email,
                     controller: emailController,
-                    currentNode: emailFocusNode,
-                    nextNode: passwordFocusNode,
                   ),
                   //password
                   const fieldTitle(title: "Password"),

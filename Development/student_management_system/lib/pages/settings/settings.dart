@@ -1,6 +1,6 @@
-import 'package:firebase_auth/firebase_auth.dart';
+// import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:student_management_system/components/button/barButton.dart';
+// import 'package:student_management_system/components/button/barButton.dart';
 import 'package:student_management_system/components/title/titlebar.dart';
 import 'package:student_management_system/pages/sign/components/logout.dart';
 
@@ -14,7 +14,6 @@ class SettingPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
     return Scaffold(
       body: isDrawerOpen
           ? MainSection(isDrawerOpen: isDrawerOpen)

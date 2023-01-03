@@ -27,7 +27,7 @@ class _SignInOrSignUpState extends State<SignInOrSignUp> {
     return Column(
       children: [
         Container(
-          width: size.width * 0.9,
+          width: size.width * 0.95,
           alignment: Alignment.centerRight,
           child: ClipRRect(
             borderRadius: BorderRadius.circular(5),

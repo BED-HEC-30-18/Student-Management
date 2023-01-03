@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:student_management_system/pages/classes/view_class.dart';
+import 'package:student_management_system/database/class_operations.dart';
 import 'package:timetable_view/timetable_view.dart';
 
 class Timetable extends StatefulWidget {
@@ -10,8 +10,11 @@ class Timetable extends StatefulWidget {
 }
 
 class _TimetableState extends State<Timetable> {
+  PeriodOperations periodOperations = PeriodOperations();
+
   @override
   Widget build(BuildContext context) {
+    // int lane5 = 5;
     Size size = MediaQuery.of(context).size;
     return Scaffold(
       body: TimetableView(
@@ -40,23 +43,7 @@ class _TimetableState extends State<Timetable> {
           textStyle: const TextStyle(color: Color.fromARGB(255, 105, 105, 105)),
           backgroundColor: Theme.of(context).scaffoldBackgroundColor,
         ),
-        events: [
-          TableEvent(
-            title: 'Mobile Development',
-            eventId: 11,
-            startTime: TableEventTime(hour: 8, minute: 0),
-            endTime: TableEventTime(hour: 9, minute: 0),
-            laneIndex: 1,
-          ),
-          TableEvent(
-            eventId: 12,
-            title: 'Mobile Development \n\n',
-            location: "CK 2",
-            laneIndex: 1,
-            startTime: TableEventTime(hour: 13, minute: 0),
-            endTime: TableEventTime(hour: 15, minute: 0),
-          ),
-        ],
+        events: [],
       ),
       LaneEvents(
         lane: Lane(
@@ -66,13 +53,6 @@ class _TimetableState extends State<Timetable> {
           backgroundColor: Theme.of(context).scaffoldBackgroundColor,
         ),
         events: [
-          TableEvent(
-            title: 'Mobile Development',
-            laneIndex: 2,
-            eventId: 21,
-            startTime: TableEventTime(hour: 7, minute: 00),
-            endTime: TableEventTime(hour: 8, minute: 00),
-          ),
           TableEvent(
               title: 'Geospatial Computing',
               laneIndex: 2,
@@ -108,13 +88,7 @@ class _TimetableState extends State<Timetable> {
           backgroundColor: Theme.of(context).scaffoldBackgroundColor,
         ),
         events: [
-          TableEvent(
-            title: 'Mobile Development',
-            laneIndex: 5,
-            eventId: 51,
-            startTime: TableEventTime(hour: 11, minute: 00),
-            endTime: TableEventTime(hour: 12, minute: 00),
-          ),
+          Event(),
         ],
       ),
       LaneEvents(
@@ -138,12 +112,23 @@ class _TimetableState extends State<Timetable> {
     ];
   }
 
+  TableEvent Event() {
+    return TableEvent(
+      title: 'Mobile Development',
+      laneIndex: 5,
+      eventId: 51,
+      startTime: TableEventTime(hour: 11, minute: 00),
+      endTime: TableEventTime(hour: 12, minute: 00),
+      // backgroundColor: Color(subjects[index].color),
+    );
+  }
+
   void onEventTapCallBack(TableEvent event) {
     print(
         "Event Clicked!! LaneIndex ${event.laneIndex} Title: ${event.title} StartHour: ${event.startTime.hour} EndHour: ${event.endTime.hour}");
-    Navigator.push(context, MaterialPageRoute(builder: (context) {
-      return ViewClass();
-    }));
+    // Navigator.push(context, MaterialPageRoute(builder: (context) {
+    // return ViewClass();
+    // }));
   }
 
   void onTimeSlotTappedCallBack(

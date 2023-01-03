@@ -1,9 +1,8 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:student_management_system/components/button/barButton.dart';
-import 'package:student_management_system/components/button/loadButton.dart';
-import 'package:student_management_system/pages/sign/components/fieldTitle.dart';
-import 'package:student_management_system/pages/sign/components/inputField.dart';
+import 'package:student_management_system/components/input/inputField.dart';
+import 'package:student_management_system/components/title/fieldTitle.dart';
 import 'package:student_management_system/pages/sign/components/otherSignOptions.dart';
 import 'package:student_management_system/pages/sign/components/passwordField.dart';
 import 'package:student_management_system/pages/sign/components/signInUpBtn.dart';
@@ -21,11 +20,11 @@ class _LoginPageState extends State<LoginPage> {
   // text controllers
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
-  final FocusNode emailFocusNode = FocusNode();
-  final FocusNode passwordFocusNode = FocusNode();
+
   final formKey = GlobalKey<FormState>();
   bool isTapped = false;
 
+// Sign in function
   Future signIn() async {
     await FirebaseAuth.instance.signInWithEmailAndPassword(
       email: emailController.text.trim(),
@@ -40,6 +39,7 @@ class _LoginPageState extends State<LoginPage> {
     super.dispose();
   }
 
+  // Button sign in
   void click() async {
     setState(() {
       isTapped = true;
@@ -109,8 +109,6 @@ class _LoginPageState extends State<LoginPage> {
                       // onChanged: (value) {},
                       icon: Icons.email,
                       controller: emailController,
-                      currentNode: emailFocusNode,
-                      nextNode: passwordFocusNode,
                     ),
                     //password
                     fieldTitle(title: "Password"),

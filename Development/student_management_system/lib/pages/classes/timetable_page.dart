@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:student_management_system/New%20Folder/page/notes_page.dart';
 import 'package:student_management_system/components/button/addButton.dart';
 import 'package:student_management_system/components/title/titlebar.dart';
 import 'package:student_management_system/pages/classes/add_edit_class.dart';
 import 'package:student_management_system/pages/classes/timetable.dart';
-import 'package:student_management_system/pages/subjects/add_edit_subject.dart';
 
 class TimetablePage extends StatelessWidget {
   TimetablePage({
@@ -67,7 +65,7 @@ class TimetablePage extends StatelessWidget {
         ],
       ),
       floatingActionButton: AddButton(
-        destination: NotesPage(),
+        destination: AddEditClass(),
       ),
     );
   }

@@ -1,6 +1,8 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:student_management_system/components/button/barButton.dart';
+import 'package:student_management_system/pages/sign/provider/google_sign_in.dart';
 
 class Logout extends StatefulWidget {
   const Logout({Key? key}) : super(key: key);
@@ -20,7 +22,8 @@ class _LogoutState extends State<Logout> {
     setState(() {
       isTapped = false;
     });
-    FirebaseAuth.instance.signOut();
+    final provider = Provider.of<GoogleSignInProvider>(context, listen: false);
+    provider.logout();
   }
 
   @override

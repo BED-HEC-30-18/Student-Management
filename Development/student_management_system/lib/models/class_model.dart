@@ -1,6 +1,6 @@
-final String tableClassess = "Classess";
+final String tablePeriods = "Period";
 
-class ClassFields {
+class PeriodFields {
   static final List<String> values = [
     id,
     subject,
@@ -20,16 +20,16 @@ class ClassFields {
   static final String end = "end";
 }
 
-class Classes {
+class Period {
   final int? id;
-  final int subject;
-  final int day;
-  final String type;
-  final String location;
-  final DateTime start;
-  final DateTime end;
+  int subject;
+  int day;
+  String type;
+  String location;
+  DateTime start;
+  DateTime end;
 
-  const Classes({
+  Period({
     this.id,
     required this.subject,
     required this.day,
@@ -39,42 +39,27 @@ class Classes {
     required this.end,
   });
 
-  Classes copy({
-    int? id,
-    int? subject,
-    int? day,
-    String? type,
-    String? location,
-    DateTime? start,
-    DateTime? end,
-  }) =>
-      Classes(
-        id: id ?? this.id,
-        subject: subject ?? this.subject,
-        day: day ?? this.day,
-        type: type ?? this.type,
-        location: location ?? this.location,
-        start: start ?? this.start,
-        end: end ?? this.end,
+  factory Period.fromMap(Map<String, dynamic> json) => new Period(
+        id: json[PeriodFields.id] as int,
+        subject: json[PeriodFields.subject] as int,
+        day: json[PeriodFields.day] as int,
+        type: json[PeriodFields.type] as String,
+        location: json[PeriodFields.location] as String,
+        start: DateTime.parse(json[PeriodFields.start] as String),
+        end: DateTime.parse(json[PeriodFields.end] as String),
       );
 
-  static Classes fromJson(Map<String, Object?> json) => Classes(
-        id: json[ClassFields.id] as int,
-        subject: json[ClassFields.subject] as int,
-        day: json[ClassFields.day] as int,
-        type: json[ClassFields.type] as String,
-        location: json[ClassFields.location] as String,
-        start: DateTime.parse(json[ClassFields.start] as String),
-        end: DateTime.parse(json[ClassFields.end] as String),
-      );
+  Map<String, dynamic> toMap() {
+    var map = <String, dynamic>{
+      PeriodFields.id: id,
+      PeriodFields.subject: subject,
+      PeriodFields.day: day,
+      PeriodFields.type: type,
+      PeriodFields.location: location,
+      PeriodFields.start: start.toIso8601String(),
+      PeriodFields.end: end.toIso8601String(),
+    };
 
-  Map<String, Object?> toJson() => {
-        ClassFields.id: id,
-        ClassFields.subject: subject,
-        ClassFields.day: day,
-        ClassFields.type: type,
-        ClassFields.location: location,
-        ClassFields.start: start.toIso8601String(),
-        ClassFields.end: end.toIso8601String(),
-      };
+    return map;
+  }
 }

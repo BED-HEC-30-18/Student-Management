@@ -45,21 +45,19 @@ import 'textFieldContainer.dart';
 // }
 
 class RoundInputField extends StatefulWidget {
-  const RoundInputField({
+  RoundInputField({
     Key? key,
     this.controller,
     required this.hintText,
     required this.icon,
-    required this.currentNode,
-    required this.nextNode,
     this.onChangedField,
+    this.max = true,
   }) : super(key: key);
 
   final String hintText;
   final IconData icon;
   final controller;
-  final FocusNode currentNode;
-  final FocusNode nextNode;
+  final bool max;
   final ValueChanged? onChangedField;
 
   @override
@@ -96,7 +94,6 @@ class _RoundInputFieldState extends State<RoundInputField> {
       child: TextFormField(
         onChanged: widget.onChangedField,
         controller: widget.controller,
-        focusNode: widget.currentNode,
         showCursor: true,
         // onChanged: widget.onChanged,
         decoration: InputDecoration(
@@ -113,10 +110,10 @@ class _RoundInputFieldState extends State<RoundInputField> {
           ),
           hintText: widget.hintText,
           border: InputBorder.none,
-          fillColor: Color.fromARGB(26, 207, 218, 227),
-          filled: true,
         ),
         onEditingComplete: editingComplete,
+        minLines: 1,
+        maxLines: 5,
       ),
     );
   }

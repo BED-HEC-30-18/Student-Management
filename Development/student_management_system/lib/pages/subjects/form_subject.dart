@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:student_management_system/pages/sign/components/fieldTitle.dart';
-import 'package:student_management_system/pages/sign/components/inputField.dart';
+import 'package:student_management_system/components/input/inputField.dart';
+import 'package:student_management_system/components/title/fieldTitle.dart';
 
 class FormSubject extends StatelessWidget {
   final String? title;
@@ -41,8 +41,6 @@ class FormSubject extends StatelessWidget {
                 hintText: "e.g. Mathematics",
                 // onChanged: (value) {},
                 icon: Icons.school,
-                currentNode: subjectFocusNode,
-                nextNode: teacherFocusNode,
               ),
               const SizedBox(
                 height: 15,
@@ -56,8 +54,6 @@ class FormSubject extends StatelessWidget {
                 hintText: "e.g. Mr Joseph Banda",
                 // onChanged: (value) {},
                 icon: Icons.person,
-                currentNode: teacherFocusNode,
-                nextNode: teacherFocusNode,
               ),
               const SizedBox(
                 height: 15,

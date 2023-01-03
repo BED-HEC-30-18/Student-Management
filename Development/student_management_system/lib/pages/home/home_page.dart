@@ -1,10 +1,7 @@
-import 'dart:ui';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_speed_dial/flutter_speed_dial.dart';
-import 'package:like_button/like_button.dart';
-import 'package:student_management_system/components/button/barButton.dart';
-import 'package:student_management_system/components/info_field.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:student_management_system/components/title/titlebar.dart';
 import 'package:student_management_system/pages/agenda/task_card.dart';
 import 'package:table_calendar/table_calendar.dart';
@@ -31,7 +28,6 @@ class _HomePageState extends State<HomePage> {
       onWillPop: () async {
         if (isDailOpen.value) {
           isDailOpen.value = false;
-
           return false;
         } else {
           return true;
@@ -135,9 +131,16 @@ class _MainSectionState extends State<MainSection> {
     Size size = MediaQuery.of(context).size;
     return Column(
       children: [
-        TitleBar(
-          title: "Hi, " + user.email!,
-          isDrawerOpen: widget.widget.isDrawerOpen,
+        GestureDetector(
+          onTap: (() {
+            print("Hi, " + user.displayName!);
+          }),
+          child: TitleBar(
+            title: (user.displayName == "")
+                ? "Hi, user"
+                : "Hi, " + user.displayName!,
+            isDrawerOpen: widget.widget.isDrawerOpen,
+          ),
         ),
         Container(
           width: size.width * 0.95,
@@ -255,6 +258,74 @@ class _MainSectionState extends State<MainSection> {
               TaskCard(),
             ],
           ),
+        ),
+        SizedBox(
+          height: 20,
+        ),
+        ElevatedButton(
+          onPressed: () {
+            ScaffoldMessenger.of(context).showSnackBar(
+              SnackBar(
+                content: Stack(
+                  children: [
+                    Container(
+                      height: 90,
+                      padding: EdgeInsets.all(16),
+                      decoration: BoxDecoration(
+                        color: Color(0xFFC12F42),
+                        borderRadius: BorderRadius.all(Radius.circular(20)),
+                      ),
+                      child: Row(
+                        children: [
+                          const SizedBox(width: 48),
+                          Expanded(
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  "Oh snap!",
+                                  style: TextStyle(
+                                    fontSize: 18,
+                                    color: Colors.white,
+                                  ),
+                                ),
+                                Text(
+                                  "Plz show nicely",
+                                  style: TextStyle(
+                                    fontSize: 12,
+                                    color: Colors.white,
+                                  ),
+                                  maxLines: 2,
+                                  overflow: TextOverflow.ellipsis,
+                                ),
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Positioned(
+                      bottom: 0,
+                      child: ClipRRect(
+                        borderRadius:
+                            BorderRadius.only(bottomLeft: Radius.circular(20)),
+                        child: SvgPicture.asset(
+                          "assets\icons\bubbles.svg",
+                          height: 48,
+                          width: 40,
+                          color: Color(0xFF801336),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+                behavior: SnackBarBehavior.floating,
+                backgroundColor: Colors.transparent,
+                elevation: 0,
+              ),
+            );
+          },
+          child: Text("Show Custom Snackbar"),
         ),
       ],
     );
