@@ -47,23 +47,23 @@ class _AddEditSubjectState extends State<AddEditSubject> {
       height: size.height * 0.06,
       child: IconButton(
         onPressed: () {
-          print(_colorController);
           print(_titleController.text);
           print(_teacherController.text);
+          print(_colorController);
           if (widget.edit) {
-            widget.subject!.color = _colorController;
             widget.subject!.title = _titleController.text;
             widget.subject!.teacher = _teacherController.text;
+            widget.subject!.color = _colorController;
 
-            // subjectOperations.updateSubject(widget.subject!);
+            subjectOperations.updateSubject(widget.subject!);
           } else {
             final subject = Subject(
-              color: _colorController,
               title: _titleController.text,
               teacher: _teacherController.text,
+              color: _colorController,
             );
 
-            // subjectOperations.createSubject(subject);
+            subjectOperations.createSubject(subject);
           }
           Navigator.pop(context);
         },
@@ -154,7 +154,6 @@ class _AddEditSubjectState extends State<AddEditSubject> {
                             GestureDetector(
                               onTap: (() {
                                 setState(() {
-                                  print(_colorController);
                                   _colorController = colorA;
                                   print(_colorController);
                                 });
