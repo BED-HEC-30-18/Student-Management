@@ -6,6 +6,7 @@ import 'package:student_management_system/domain/models/subject_model.dart';
 import 'package:student_management_system/domain/models/task_model.dart';
 import 'package:student_management_system/view/pages/agenda/view_event.dart';
 
+// ignore: must_be_immutable
 class EventList extends StatefulWidget {
   List<Task> tasks;
   EventList(List<Task> this.tasks, {Key? key}) : super(key: key);
@@ -68,6 +69,7 @@ class _EventListState extends State<EventList> {
   }
 }
 
+// ignore: must_be_immutable
 class EventCard extends StatefulWidget {
   Task task;
   String time;

@@ -4,6 +4,7 @@ import 'package:student_management_system/view/core/components/title/titlebar.da
 import 'package:student_management_system/view/pages/classes/add_edit_class.dart';
 import 'package:student_management_system/view/pages/classes/timetable.dart';
 
+// ignore: must_be_immutable
 class TimetablePage extends StatelessWidget {
   TimetablePage({
     Key? key,

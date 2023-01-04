@@ -6,6 +6,7 @@ import 'package:student_management_system/view/core/components/title/titlebar.da
 import 'package:student_management_system/view/pages/agenda/task_card.dart';
 import 'package:table_calendar/table_calendar.dart';
 
+// ignore: must_be_immutable
 class HomePage extends StatefulWidget {
   HomePage({
     Key? key,
@@ -23,7 +24,7 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
+    // Size size = MediaQuery.of(context).size;
     return WillPopScope(
       onWillPop: () async {
         if (isDailOpen.value) {
@@ -262,71 +263,71 @@ class _MainSectionState extends State<MainSection> {
         SizedBox(
           height: 20,
         ),
-        ElevatedButton(
-          onPressed: () {
-            ScaffoldMessenger.of(context).showSnackBar(
-              SnackBar(
-                content: Stack(
-                  children: [
-                    Container(
-                      height: 90,
-                      padding: EdgeInsets.all(16),
-                      decoration: BoxDecoration(
-                        color: Color(0xFFC12F42),
-                        borderRadius: BorderRadius.all(Radius.circular(20)),
-                      ),
-                      child: Row(
-                        children: [
-                          const SizedBox(width: 48),
-                          Expanded(
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  "Oh snap!",
-                                  style: TextStyle(
-                                    fontSize: 18,
-                                    color: Colors.white,
-                                  ),
-                                ),
-                                Text(
-                                  "Plz show nicely",
-                                  style: TextStyle(
-                                    fontSize: 12,
-                                    color: Colors.white,
-                                  ),
-                                  maxLines: 2,
-                                  overflow: TextOverflow.ellipsis,
-                                ),
-                              ],
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                    Positioned(
-                      bottom: 0,
-                      child: ClipRRect(
-                        borderRadius:
-                            BorderRadius.only(bottomLeft: Radius.circular(20)),
-                        child: SvgPicture.asset(
-                          "assets\icons\bubbles.svg",
-                          height: 48,
-                          width: 40,
-                          color: Color(0xFF801336),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-                behavior: SnackBarBehavior.floating,
-                backgroundColor: Colors.transparent,
-                elevation: 0,
-              ),
-            );
-          },
-          child: Text("Show Custom Snackbar"),
-        ),
+        // ElevatedButton(
+        //   onPressed: () {
+        //     ScaffoldMessenger.of(context).showSnackBar(
+        //       SnackBar(
+        //         content: Stack(
+        //           children: [
+        //             Container(
+        //               height: 90,
+        //               padding: EdgeInsets.all(16),
+        //               decoration: BoxDecoration(
+        //                 color: Color(0xFFC12F42),
+        //                 borderRadius: BorderRadius.all(Radius.circular(20)),
+        //               ),
+        //               child: Row(
+        //                 children: [
+        //                   const SizedBox(width: 48),
+        //                   Expanded(
+        //                     child: Column(
+        //                       crossAxisAlignment: CrossAxisAlignment.start,
+        //                       children: [
+        //                         Text(
+        //                           "Oh snap!",
+        //                           style: TextStyle(
+        //                             fontSize: 18,
+        //                             color: Colors.white,
+        //                           ),
+        //                         ),
+        //                         Text(
+        //                           "Plz show nicely",
+        //                           style: TextStyle(
+        //                             fontSize: 12,
+        //                             color: Colors.white,
+        //                           ),
+        //                           maxLines: 2,
+        //                           overflow: TextOverflow.ellipsis,
+        //                         ),
+        //                       ],
+        //                     ),
+        //                   ),
+        //                 ],
+        //               ),
+        //             ),
+        //             Positioned(
+        //               bottom: 0,
+        //               child: ClipRRect(
+        //                 borderRadius:
+        //                     BorderRadius.only(bottomLeft: Radius.circular(20)),
+        //                 child: SvgPicture.asset(
+        //                   "assets\icons\bubbles.svg",
+        //                   height: 48,
+        //                   width: 40,
+        //                   color: Color(0xFF801336),
+        //                 ),
+        //               ),
+        //             ),
+        //           ],
+        //         ),
+        //         behavior: SnackBarBehavior.floating,
+        //         backgroundColor: Colors.transparent,
+        //         elevation: 0,
+        //       ),
+        //     );
+        //   },
+        //   child: Text("Show Custom Snackbar"),
+        // ),
       ],
     );
   }

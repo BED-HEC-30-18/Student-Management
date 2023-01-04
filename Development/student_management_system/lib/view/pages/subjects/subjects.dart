@@ -7,6 +7,7 @@ import 'package:student_management_system/view/core/components/title/titlebar.da
 import 'package:student_management_system/view/pages/subjects/add_edit_subject.dart';
 import 'package:student_management_system/view/pages/subjects/view_subject.dart';
 
+// ignore: must_be_immutable
 class SubjectPage extends StatelessWidget {
   SubjectPage({
     Key? key,
@@ -71,7 +72,7 @@ class _MainSectionState extends State<MainSection> {
 
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
+    // Size size = MediaQuery.of(context).size;
     return Column(
       children: [
         TitleBar(
@@ -155,6 +156,7 @@ class _MainSectionState extends State<MainSection> {
   }
 }
 
+// ignore: must_be_immutable
 class SubjectList extends StatelessWidget {
   List<Subject> subjects;
   SubjectList(
@@ -171,7 +173,7 @@ class SubjectList extends StatelessWidget {
         padding: const EdgeInsets.all(8),
         itemCount: subjects.length,
         itemBuilder: (context, index) {
-          final subject = subjects[index];
+          // final subject = subjects[index];
           return Slidable(
             key: Key('${subjects[index].id}'),
             startActionPane: ActionPane(

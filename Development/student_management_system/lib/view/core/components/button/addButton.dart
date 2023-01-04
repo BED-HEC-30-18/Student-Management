@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+// ignore: must_be_immutable
 class AddButton extends StatelessWidget {
   AddButton({Key? key, required this.destination}) : super(key: key);
 

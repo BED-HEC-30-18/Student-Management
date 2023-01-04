@@ -7,6 +7,7 @@ import 'package:student_management_system/view/core/components/info_field.dart';
 import 'package:student_management_system/view/core/components/title/titleback.dart';
 import 'package:student_management_system/view/pages/agenda/add_edit_event.dart';
 
+// ignore: must_be_immutable
 class ViewTask extends StatefulWidget {
   Task task;
   ViewTask({

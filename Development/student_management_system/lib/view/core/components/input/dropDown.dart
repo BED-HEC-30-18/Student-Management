@@ -5,6 +5,7 @@ import 'package:student_management_system/view/core/components/title/fieldTitle.
 
 typedef void StringCallback(String val);
 
+// ignore: must_be_immutable
 class DropDownMenu extends StatefulWidget {
   final String title;
   final String hint;
@@ -89,6 +90,7 @@ class _DropDownMenuState extends State<DropDownMenu> {
 
 typedef void SubjectCallback(Subject val);
 
+// ignore: must_be_immutable
 class SubjectDrop extends StatefulWidget {
   Subject? selected;
   final SubjectCallback callback;
@@ -161,6 +163,7 @@ class _SubjectDropState extends State<SubjectDrop> {
   }
 }
 
+// ignore: must_be_immutable
 class SubjectDropdown extends StatefulWidget {
   List<Subject> subjects;
   Subject? selectedSubject;

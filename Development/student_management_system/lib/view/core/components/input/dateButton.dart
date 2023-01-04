@@ -3,6 +3,7 @@ import 'package:student_management_system/view/core/components/title/fieldTitle.
 
 typedef void DateTimeCallback(DateTime val);
 
+// ignore: must_be_immutable
 class DateButton extends StatefulWidget {
   DateTime date;
   final DateTimeCallback callback;

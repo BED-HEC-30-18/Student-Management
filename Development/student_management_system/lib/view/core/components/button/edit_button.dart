@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+// ignore: must_be_immutable
 class EditButton extends StatelessWidget {
   EditButton({Key? key, required this.destination}) : super(key: key);
 

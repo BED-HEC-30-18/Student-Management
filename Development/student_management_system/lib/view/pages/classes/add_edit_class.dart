@@ -8,6 +8,7 @@ import 'package:student_management_system/view/core/components/input/timeButton.
 import 'package:student_management_system/view/core/components/title/fieldTitle.dart';
 import 'package:student_management_system/view/core/components/title/titleback.dart';
 
+// ignore: must_be_immutable
 class AddEditClass extends StatefulWidget {
   Period? period;
   Subject? subject;

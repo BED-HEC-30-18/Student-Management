@@ -4,6 +4,7 @@ import 'package:student_management_system/view/core/components/title/titlebar.da
 import 'package:student_management_system/view/pages/sign/components/logout.dart';
 // import 'package:student_management_system/components/button/barButton.dart';
 
+// ignore: must_be_immutable
 class SettingPage extends StatelessWidget {
   SettingPage({
     Key? key,

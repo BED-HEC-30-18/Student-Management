@@ -22,8 +22,6 @@ class FormSubject extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final FocusNode subjectFocusNode = FocusNode();
-    final FocusNode teacherFocusNode = FocusNode();
     Size size = MediaQuery.of(context).size;
     int colorA = Color.fromARGB(255, 113, 191, 71).value;
     int colorB = Color.fromARGB(255, 243, 121, 51).value;

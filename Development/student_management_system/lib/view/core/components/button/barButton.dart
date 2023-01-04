@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+// ignore: must_be_immutable
 class BarButton extends StatefulWidget {
   BarButton(
       {Key? key, required this.title, required this.isTapped, this.onPressed})

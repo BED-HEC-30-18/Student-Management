@@ -7,6 +7,7 @@ import 'package:student_management_system/view/core/components/info_field.dart';
 import 'package:student_management_system/view/core/components/title/titleback.dart';
 import 'package:student_management_system/view/pages/subjects/add_edit_subject.dart';
 
+// ignore: must_be_immutable
 class ViewSubject extends StatefulWidget {
   Subject subject;
   ViewSubject({Key? key, required this.subject}) : super(key: key);

@@ -5,6 +5,7 @@ import 'package:student_management_system/view/core/main/main_page.dart';
 
 enum ButtonState { init, loading, done, start, successs }
 
+// ignore: must_be_immutable
 class ButtonLoad extends StatefulWidget {
   ButtonLoad(
       {Key? key,
@@ -56,7 +57,7 @@ class _ButtonLoadState extends State<ButtonLoad> {
   }
 
   Widget buildButton(bool isDone, bool isClicked) {
-    final double rounded = isDone ? 50 : 5;
+    // final double rounded = isDone ? 50 : 5;
     return AnimatedContainer(
       duration: Duration(milliseconds: 500),
       decoration: BoxDecoration(

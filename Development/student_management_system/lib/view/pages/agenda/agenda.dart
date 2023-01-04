@@ -4,6 +4,7 @@ import 'package:student_management_system/view/core/components/title/titlebar.da
 import 'package:student_management_system/view/pages/agenda/add_edit_event.dart';
 import 'package:student_management_system/view/pages/agenda/calendar.dart';
 
+// ignore: must_be_immutable
 class CalendarPage extends StatelessWidget {
   CalendarPage({
     Key? key,
@@ -14,7 +15,7 @@ class CalendarPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
+    // Size size = MediaQuery.of(context).size;
     return Scaffold(
       body: isDrawerOpen
           ? MainSection(isDrawerOpen: isDrawerOpen)

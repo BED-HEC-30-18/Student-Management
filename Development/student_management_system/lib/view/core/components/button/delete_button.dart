@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+// ignore: must_be_immutable
 class DeleteButton extends StatefulWidget {
   DeleteButton({Key? key, required this.isTapped, this.onPressed})
       : super(key: key);

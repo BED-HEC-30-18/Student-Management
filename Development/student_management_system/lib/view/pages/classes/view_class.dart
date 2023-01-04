@@ -8,6 +8,7 @@ import 'package:student_management_system/view/core/components/info_field.dart';
 import 'package:student_management_system/view/core/components/title/titleback.dart';
 import 'package:student_management_system/view/pages/classes/add_edit_class.dart';
 
+// ignore: must_be_immutable
 class ViewClass extends StatefulWidget {
   Period period;
   ViewClass({Key? key, required this.period}) : super(key: key);

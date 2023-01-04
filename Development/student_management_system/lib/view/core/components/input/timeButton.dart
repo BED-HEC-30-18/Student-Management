@@ -3,6 +3,7 @@ import 'package:student_management_system/view/core/components/title/fieldTitle.
 
 typedef void TimeOfDayCallback(TimeOfDay val);
 
+// ignore: must_be_immutable
 class TimeButton extends StatefulWidget {
   TimeOfDay time;
   final TimeOfDayCallback callback;
