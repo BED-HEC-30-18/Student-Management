@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:provider/provider.dart';
-import 'package:student_management_system/pages/main/start_page.dart';
-import 'package:student_management_system/pages/sign/provider/google_sign_in.dart';
+import 'package:student_management_system/view/core/main/start_page.dart';
+import 'package:student_management_system/view/pages/sign/provider/google_sign_in.dart';
 // import 'package:student_management_system/theme/theme.dart';
 
 // Intialize firebase across app
